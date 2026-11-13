@@ -1,0 +1,38 @@
+[workspace]
+members = [
+  ".",
+  "crates/bili-api",
+  "crates/title-parser",
+  "crates/library",
+  "crates/player",
+  "crates/win-integration",
+]
+resolver = "2"
+
+[package]
+name = "szxmusic"
+version = "0.2.0"
+description = "SZXmusic — B站音源液态玻璃终端挂件与黑胶唱片库"
+authors = ["SZXmusic"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+bili-api = { path = "crates/bili-api" }
+title-parser = { path = "crates/title-parser" }
+library = { path = "crates/library" }
+player = { path = "crates/player" }
+win-integration = { path = "crates/win-integration" }
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+opt-level = "s"
+panic = "abort"
+strip = true

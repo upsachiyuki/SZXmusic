@@ -1,0 +1,12 @@
+node_modules/
+dist/
+target/
+src-tauri/target/
+src-tauri/gen/
+release-v*/
+.DS_Store
+Thumbs.db
+*.log
+*.sqlite
+*.db
+.env

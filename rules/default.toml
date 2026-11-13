@@ -1,0 +1,78 @@
+# SZXmusic 默认标题识别规则（v0.1 优化版）
+
+[[noise]]
+id = "quality-tags"
+pattern = '(?i)(?:【|\[|\(|（)\s*(?:4K(?:\s*修复|\s*纯享|\s*Hi-?Res|\s*收藏级)?|8K|1080P|720P|60FPS|1920\s*[xX×]\s*1080(?:\s*60fps)?|Hi-?Res|HDR|杜比(?:全景声)?|Dolby|无损(?:音质)?|官方(?:完整)?MV|Official\s*(?:Music\s*)?Video|MV|PV|中字|中日双语|双语(?:字幕)?|特效字幕|高音质|纯享(?:版)?|完整版(?:熟肉)?|熟肉|NW\(自压\)|自压|黑屏[·・]?弹幕版|全天然[｜|]无人声)\s*(?:】|\]|\)|）)'
+
+[[noise]]
+id = "stage-warning-banner"
+pattern = '(?:⚠️[^⚠️]{1,12}⚠️|⚡+[^⚡]{1,12}⚡+)'
+
+[[version_rule]]
+id = "live"
+version = "Live"
+pattern = '(?i)(?:【|\[|\(|（|\s)(?:Live|现场版?|演唱会|音乐节|Fancam|直拍)(?:】|\]|\)|）|\b)'
+
+[[version_rule]]
+id = "cover"
+version = "Cover"
+pattern = '(?i)(?:【|\[|\(|（|\s)(?:Cover|翻唱|翻自|弹唱|翻跳)\s*[:：]?\s*(?P<orig>[^】\]\)）]*)(?:】|\]|\)|）)?'
+
+[[version_rule]]
+id = "remix"
+version = "Remix"
+pattern = '(?i)(?:【|\[|\(|（|\s)(?:Remix|Bootleg|Mashup|Mix|DJ版)(?:】|\]|\)|）|\b)'
+
+[[version_rule]]
+id = "instrumental"
+version = "Instrumental"
+pattern = '(?i)(?:【|\[|\(|（|\s)(?:伴奏|Inst\.?|Instrumental|Off\s*Vocal|纯音乐|卡拉OK)(?:】|\]|\)|）|\b)'
+
+[[rule]]
+id = "bracket-artist"
+priority = 90
+pattern = '^【(?P<artist>[^】]{1,30})】\s*(?P<title>.+)$'
+
+[[rule]]
+id = "angle-title-artist"
+priority = 88
+pattern = '<(?P<title>[^>-]+?)\s*[-–—]\s*(?P<artist>[^>]+)>'
+
+[[rule]]
+id = "dash-separated"
+priority = 82
+pattern = '^(?P<artist>[^\d|-][^|-]{0,28}?)\s*[-–—]\s*(?P<title>.+)$'
+
+[[rule]]
+id = "series-pipe-title"
+priority = 84
+pattern = '^(?:(?P<artist>[^|｜丨]{2,12}?)(?:神级现场|封神现场|珍藏级舞台|二周年|三周年|四周年|生日会|演唱会|专场)|BW\d*)[^|｜丨]*[|｜丨]\s*(?P<title>.+)$'
+artist_from = "uploader"
+
+[[rule]]
+id = "vocaloid-slash"
+priority = 78
+pattern = '^(?P<title>[^/|｜丨]{1,32}?)\s*/\s*(?P<artist>[^/|｜丨!！?？~～，,。]{1,28})$'
+
+[[rule]]
+id = "pipe-trailing-artist"
+priority = 76
+pattern = '^(?P<title>[^|｜丨]{2,36}?)\s*[|｜丨]\s*(?P<artist>[^|｜丨!！?？~～，,。🔥⚡⚠️⭐]{2,18})$'
+
+[[rule]]
+id = "book-title"
+priority = 75
+pattern = '《(?P<title>[^》]+)》'
+artist_from = "uploader"
+
+[[rule]]
+id = "trailing-bracket-title"
+priority = 74
+pattern = '^.+?【(?P<title>[^】]{1,28})】\s*$'
+artist_from = "uploader"
+
+[[rule]]
+id = "corner-quote-title"
+priority = 73
+pattern = '「(?P<title>[^」]{1,32})」'
+artist_from = "uploader"

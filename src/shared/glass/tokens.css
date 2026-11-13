@@ -1,0 +1,123 @@
+:root,
+[data-theme="dark"] {
+  --bg: #1f1e1d;
+  --glass-bg: rgba(31, 30, 29, 0.56);
+  --glass-bg-dense: rgba(31, 30, 29, 0.78);
+  --panel: #262624;
+  --panel-glass: rgba(38, 38, 36, 0.64);
+  --line: #3d3a35;
+  --ink: #f5f4ee;
+  --ink-dim: #a8a69d;
+  --accent: #d97757;
+  --accent-soft: rgba(217, 119, 87, 0.18);
+  --accent-glow: rgba(217, 119, 87, 0.34);
+  --warn: #e0a458;
+  --glass-top-edge: rgba(255, 246, 236, 0.18);
+  --glass-border: rgba(255, 245, 235, 0.11);
+  --glass-bottom-edge: rgba(0, 0, 0, 0.36);
+  --glass-rim: rgba(217, 119, 87, 0.22);
+  --glass-shadow: rgba(0, 0, 0, 0.48);
+  --crate-wall: rgba(245, 244, 238, 0.08);
+  --crate-edge: rgba(255, 248, 240, 0.24);
+  --crate-floor: rgba(20, 19, 18, 0.52);
+  --vinyl-black: #121211;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #faf9f5;
+  --glass-bg: rgba(250, 249, 245, 0.62);
+  --glass-bg-dense: rgba(250, 249, 245, 0.82);
+  --panel: #f0eee6;
+  --panel-glass: rgba(240, 238, 230, 0.72);
+  --line: #e3e0d6;
+  --ink: #141413;
+  --ink-dim: #6b6a64;
+  --accent: #c96442;
+  --accent-soft: rgba(201, 100, 66, 0.14);
+  --accent-glow: rgba(201, 100, 66, 0.28);
+  --warn: #b7791f;
+  --glass-top-edge: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(20, 20, 19, 0.09);
+  --glass-bottom-edge: rgba(20, 20, 19, 0.08);
+  --glass-rim: rgba(201, 100, 66, 0.18);
+  --glass-shadow: rgba(20, 20, 19, 0.16);
+  --crate-wall: rgba(255, 255, 255, 0.34);
+  --crate-edge: rgba(255, 255, 255, 0.85);
+  --crate-floor: rgba(215, 208, 194, 0.45);
+  --vinyl-black: #181716;
+  color-scheme: light;
+}
+
+:root {
+  --font-mono: "Sarasa Mono SC", "JetBrains Mono", "Cascadia Mono", "IBM Plex Mono", Consolas, monospace;
+  --font-serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", Georgia, serif;
+  --font-sans: "Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
+  --font-signature: "Segoe Script", "Lucida Handwriting", "Brush Script MT", "Freestyle Script", "STKaiti", "KaiTi", "FangSong", cursive;
+  --crate-glass-blur: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* Browser-only preview backdrop when running outside Tauri */
+.szx-browser-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 22% 24%, rgba(217, 119, 87, 0.34), transparent 44%),
+    radial-gradient(circle at 76% 68%, rgba(180, 130, 82, 0.25), transparent 50%),
+    linear-gradient(135deg, #1b1714 0%, #2a211b 52%, #151413 100%);
+}
+
+[data-theme="light"] .szx-browser-stage {
+  background: radial-gradient(circle at 20% 20%, rgba(226, 178, 132, 0.55), transparent 48%),
+    radial-gradient(circle at 80% 75%, rgba(201, 100, 66, 0.26), transparent 52%),
+    linear-gradient(135deg, #efe4d2 0%, #e5d2ba 50%, #f3ece0 100%);
+}
+
+.szx-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.szx-serif {
+  font-family: var(--font-serif);
+}
+
+/* Thin subtle custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

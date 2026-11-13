@@ -1,0 +1,129 @@
+.szx-widget-root {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  overflow: hidden;
+}
+
+.szx-widget-term {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 9px 12px 8px;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 11.5px;
+  line-height: 1.34;
+}
+
+.szx-term-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  cursor: grab;
+}
+
+.szx-term-header.is-locked {
+  cursor: default;
+}
+
+.szx-spec-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 10px;
+  padding: 7px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.szx-spec-bars {
+  height: 44px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.szx-spec-bar {
+  flex: 1;
+  min-width: 2px;
+  border-radius: 1.5px 1.5px 0 0;
+  transition: height 75ms linear;
+}
+
+.szx-meter-track {
+  position: relative;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.szx-meter-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 75ms linear;
+}
+
+.szx-widget-btn {
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  width: 26px;
+  height: 24px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.szx-widget-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.szx-size-chip {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-dim);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.szx-size-chip.is-active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+@keyframes szx-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.szx-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 11px;
+  background: var(--accent);
+  vertical-align: -1px;
+  margin-left: 4px;
+  animation: szx-blink 1.05s steps(1) infinite;
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "SZXmusic",
+  "version": "0.2.0",
+  "identifier": "com.szxmusic.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "SZXmusic",
+        "url": "index.html",
+        "width": 1120,
+        "height": 720,
+        "minWidth": 920,
+        "minHeight": 600,
+        "decorations": false,
+        "transparent": true,
+        "resizable": true,
+        "center": true,
+        "additionalBrowserArgs": "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --disk-cache-size=16777216 --media-cache-size=4194304 --js-flags=--max-old-space-size=128 --disable-background-networking"
+      },
+      {
+        "label": "widget",
+        "title": "SZXmusic Widget",
+        "url": "widget.html",
+        "width": 356,
+        "height": 340,
+        "decorations": false,
+        "transparent": true,
+        "resizable": false,
+        "alwaysOnTop": false,
+        "skipTaskbar": true,
+        "visible": true,
+        "additionalBrowserArgs": "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --disk-cache-size=16777216 --media-cache-size=4194304 --js-flags=--max-old-space-size=128 --disable-background-networking"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "nsis",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/icon.ico",
+      "icons/icon.png"
+    ]
+  }
+}

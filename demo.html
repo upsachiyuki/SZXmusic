@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>orlune · Liquid Theme Reveal Showcase</title>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("orlune-liquid-demo-theme");
+          var mode = t === "dark" || t === "light" ? t : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", mode);
+          root.style.backgroundColor = mode === "dark" ? "#060609" : "#F1F0ED";
+          root.style.color = mode === "dark" ? "#F4F2F8" : "#141319";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/liquid-demo/main.tsx"></script>
+  </body>
+</html>
